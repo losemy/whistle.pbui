@@ -1,0 +1,31 @@
+{
+  "name": "whistle.pbui",
+  "version": "1.0.6",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-onerror": "^4.1.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0"
+  },
+  "whistleConfig": {
+    "inspectorTabs": {
+      "page": "req-tab.html",
+      "name": "PB可视化",
+      "req": {
+        "page": "req-tab.html",
+        "name": "PB可视化"
+      },
+      "res": {
+        "action": "res-tab.html",
+        "name": "PB可视化"
+      }
+    },
+    "composerTab": {
+      "action": "res-tab.html",
+      "name": "PB可视化"
+    }
+  }
+}
