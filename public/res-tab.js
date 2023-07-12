@@ -16,13 +16,13 @@
   };
   var getBodyJSON = wb.createRequest(cgiOpts);
 
-  // wb.addSessionActiveListener(function(item) {
-  //   if (!item) {
-  //     content.innerHTML = '请选择抓包数据';
-  //     return;
-  //   }
-  //   content.innerHTML = '计算中...';
-  // });
+  wb.addSessionActiveListener(function(item) {
+    if (!item) {
+      content.textContent = '请选择抓包数据';
+      return;
+    }
+    content.textContent = '计算中...';
+  });
   wb.addSessionCompleteListener(function(item) {
     console.log('item.res ' +  JSON.stringify(item.res))
     if (!item) {
@@ -39,7 +39,7 @@
       getBodyJSON({ base64: base64 }, function(data) {
         if (!data) {
           content.onclick = loadJSON;
-          content.textContent = '请求失败，请点击<strong>重试</strong>！';
+          content.textContent = '请求失败，请点击重试';
           return;
         }
         content.textContent = data.pbjs;

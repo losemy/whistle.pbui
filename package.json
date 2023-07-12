@@ -1,6 +1,6 @@
 {
   "name": "whistle.pbui",
-  "version": "1.0.6",
+  "version": "1.0.5",
   "description": "",
   "dependencies": {
     "axios": "^1.4.0",
@@ -12,8 +12,6 @@
   },
   "whistleConfig": {
     "inspectorTabs": {
-      "page": "req-tab.html",
-      "name": "PB可视化",
       "req": {
         "page": "req-tab.html",
         "name": "PB可视化"

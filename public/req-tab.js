@@ -21,24 +21,31 @@
 
 
   var getBodyJSON = wb.createRequest(cgiOpts);
-
+  wb.addSessionActiveListener(function(item) {
+    if (!item) {
+      content.textContent = '请选择抓包数据';
+      return;
+    }
+    content.textContent = '计算中...';
+  });
+  
   wb.addSessionRequestListener(function(item) {
     console.log('item.req ' +  JSON.stringify(item.req));
     if (!item) {
       return;
     }
-    var base64 = item.req.base64;
+    const base64 = item.req.base64;
     if (!base64) {
       content.textContent = 'content empty';
       return;
     }
-    var loadJSON = function() {
+    const loadJSON = function () {
       content.textContent = '计算中...';
       content.onclick = noop;
-      getBodyJSON({base64: base64}, function(data) {
+      getBodyJSON({base64: base64}, function (data) {
         if (!data) {
           content.onclick = loadJSON;
-          content.textContent = '请求失败，请点击<strong>重试</strong>！';
+          content.textContent = '请求失败，请点击重试';
           return;
         }
         content.textContent = data.pbjs;
